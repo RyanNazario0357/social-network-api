@@ -44,3 +44,12 @@ const thoughtController = {
       })
       .catch((err) => res.json(err));
   },
+
+  getAllThoughts(req, res) {
+    Thought.find({})
+      .then((thoughtData) => res.json(thoughtData))
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  },
