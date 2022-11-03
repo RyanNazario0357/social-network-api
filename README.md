@@ -12,3 +12,9 @@ This API creates and deletes reactions to thoughts and can also add/remove frien
 * MongoDB
 * Mongoose
 * Node.js
+
+### video demo
+  https://user-images.githubusercontent.com/106676739/197046382-91d73493-d709-4663-aa1a-0dad54c6e6a0.mp4
+
+### Github
+    https://github.com/RyanNazario0357/social-network-api
