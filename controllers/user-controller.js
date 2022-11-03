@@ -38,3 +38,25 @@ const userController = {
         res.status(400).json(err);
       });
   },
+  createUsers({ body }, res) {
+    User.create(body)
+      .then((userData) => res.json(userData))
+      .catch((err) => res.status(400).json(err));
+  },
+  updateUser({ params, body }, res) {
+    User.findOneAndUpdate({ _id: params.id }, body, {
+      new: true,
+      runValidators: true,
+    })
+      .then((userData) => {
+        if (!userData) {
+          res.status(404).json({ message: "No User Found" });
+          return;
+        }
+        res.json(userData);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+        console.log(err);
+      });
+  },
