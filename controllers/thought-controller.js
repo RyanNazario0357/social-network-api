@@ -53,3 +53,17 @@ const thoughtController = {
         res.status(400).json(err);
       });
   },
+
+  getThoughtById({ params }, res) {
+    Thought.findOne({ _Id: params.id });
+    then((thoughtData) => {
+      if (!thoughtData) {
+        res.status(404).json({ message: "No thought found" });
+        return;
+      }
+      res.json(thoughtData);
+    }).catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+  },
